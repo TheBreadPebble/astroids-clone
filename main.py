@@ -64,8 +64,8 @@ def main():
         screen.blit(playerShip, ((player.x_pos), (player.y_pos)))
 
         pressed = pygame.key.get_pressed()
-        if (pressed[K_LEFT] or pressed[K_a]) : player.angle = player.angle + 1
-        if (pressed[K_RIGHT] or pressed[K_d]) : player.angle = player.angle - 1
+        if (pressed[K_LEFT] or pressed[K_a]) : player.angle = player.angle + 0.5
+        if (pressed[K_RIGHT] or pressed[K_d]) : player.angle = player.angle - 0.5
 
         if (pressed[K_UP] or pressed[K_w]) : player.y_vel = player.y_vel - player.SPEED
         if (pressed[K_DOWN] or pressed[K_s]) : player.y_vel = player.y_vel + player.SPEED
