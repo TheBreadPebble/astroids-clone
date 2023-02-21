@@ -23,7 +23,7 @@ class ship:
         self.y_vel = 0
 
         # speed method
-        self.SPEED = 0.005
+        self.SPEED = 0.05
 
         # angle of the ship
         self.angle = 0.0
@@ -58,6 +58,12 @@ def main():
         # player/ship
         playerShip = player.load_ship()
         playerShip = pygame.transform.rotate(playerShip, player.angle)
+
+        # wrap the ship around the screen edges
+        if player.x_pos < -player.WIDTH/2: player.x_pos = WIDTH + player.WIDTH/2
+        elif player.x_pos > WIDTH + player.WIDTH/2: player.x_pos = -player.WIDTH/2
+        if player.y_pos < -player.HEIGHT/2: player.y_pos = HEIGHT + player.HEIGHT/2
+        elif player.y_pos > HEIGHT + player.HEIGHT/2: player.y_pos = -player.HEIGHT/2
 
         player.x_pos = player.x_pos + player.x_vel
         player.y_pos = player.y_pos + player.y_vel
